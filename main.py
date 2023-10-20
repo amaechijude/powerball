@@ -3,7 +3,7 @@ import random
 print(logo)
 #STEP ONE
 while True:
-    print("Enter five different integers below seperated by space. (eg: 5 9 23 47 64)")
+    print("Enter five different integers between 1 and 69 seperated by space. (eg: 5 9 23 47 64)")
     user_input = input("> ")
     conv_list = user_input.split(" ")
 #Check that the player entered five things,
@@ -14,7 +14,6 @@ while True:
     try:
         for i in range(5):
             conv_list[i] = int(conv_list[i])
-        print(conv_list)
     except ValueError:
         print("Please enter a number")
         continue
@@ -57,6 +56,8 @@ while True:
         print("Minumum is 1 and maximum is 1000000")
         continue
     break
+print(f"Playing {trials} times will cost you ${2*trials} at $2 per game")
+input("Press enter to continue: ")
 
 #STEP FOUR
 initial_chance = 0
@@ -67,9 +68,9 @@ while initial_chance < trials:
     winning_numbers = possible_outcomes[0:5]
     winning_powerball = random.randint(1,26)
     #Display winningnumbers
-    output = "The winning number is {} and {} and you ".format(winning_numbers, winning_powerball)
-    if winning_numbers == conv_list or winning_powerball == powerball:
-        print(str(output) + "won")
+    output = "The winning number is {} and {}".format(set(winning_numbers), winning_powerball)
+    if (set(winning_numbers) == set(conv_list)) and (winning_powerball == powerball):
+        print(str(output) + " and you won")
     else:
-        print(str(output) + "lost")
+        print(str(output) + " and you lost")
     initial_chance += 1
