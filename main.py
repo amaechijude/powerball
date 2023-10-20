@@ -5,7 +5,7 @@ print(logo)
 while True:
     print("Enter five different integers between 1 and 69 seperated by space. (eg: 5 9 23 47 64)")
     user_input = input("> ")
-    conv_list = user_input.split(" ")
+    conv_list = user_input.split()
 #Check that the player entered five things,
     if len(conv_list) != 5:
         print("Enter five numbers seperated by space")
@@ -68,9 +68,9 @@ while initial_chance < trials:
     winning_numbers = possible_outcomes[0:5]
     winning_powerball = random.randint(1,26)
     #Display winningnumbers
-    output = "The winning number is {} and {}".format(set(winning_numbers), winning_powerball)
+    output = "The winning number is {} and {} and you".format(set(winning_numbers), winning_powerball)
     if (set(winning_numbers) == set(conv_list)) and (winning_powerball == powerball):
-        print(str(output) + " and you won")
+        print(str(output) + " won")
     else:
-        print(str(output) + " and you lost")
+        print(str(output) + " lost")
     initial_chance += 1
